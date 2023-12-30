@@ -3,8 +3,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
-
+#include <QtSerialPort>
+#include <Qserialportinfo>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,8 +19,18 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_tabWidget_tabBarClicked(int index);
+
+    void on_pushButton_clicked();
+
+    void on_Select_clicked();
+
 private:
     Ui::MainWindow *ui;
+    void loadports();
+    QSerialPort *_serialPort;
+
 };
 
 #endif // MAINWINDOW_H

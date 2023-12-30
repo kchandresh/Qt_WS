@@ -15,6 +15,9 @@ public:
     explicit ChatTerminal(QWidget *parent = nullptr);
     ~ChatTerminal();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::ChatTerminal *ui;
 };

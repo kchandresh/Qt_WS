@@ -44,8 +44,13 @@ else()
         )
     endif()
 endif()
-
-target_link_libraries(Qt_serial_port_open PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+find_package(Qt6 REQUIRED COMPONENTS SerialPort) #serial port added here
+target_link_libraries(Qt_serial_port_open PRIVATE
+    Qt::Core
+    Qt::Gui
+    Qt::Widgets
+    Qt::SerialPort  #serial port added here
+)
 
 set_target_properties(Qt_serial_port_open PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
